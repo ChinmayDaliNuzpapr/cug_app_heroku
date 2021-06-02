@@ -1,0 +1,5 @@
+@import "../../../styles/globals.css";
+
+.subtext_css {
+  text-shadow: 2px 2px #bbbbbb;
+}

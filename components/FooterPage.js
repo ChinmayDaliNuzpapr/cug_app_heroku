@@ -2,11 +2,11 @@ import React from "react";
 
 function FooterPage() {
   return (
-    <div className="bg-blue-200 p-5">
-      <div className="container">
-        <div className="grid grid-cols-3 gap-4">
+    <div id="footerPageComponent" className="bg-blue-200 p-5">
+      <div className="container container mx-auto">
+        <div className="grid grid-cols-3 gap-4 justify-items-center content-center text-justify">
           {/* Column-1 */}
-          <div className="flex flex-col justify-items-center">
+          <div className="flex flex-col ">
             <div>
               <span>About</span>
             </div>

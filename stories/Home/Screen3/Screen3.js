@@ -17,9 +17,9 @@ const Screen3 = () => {
       <div>
         <div className=" flex justify-around">
           <div>
-            <Image
-              width="1000"
-              height="1000"
+            <img
+              // width="1000"
+              // height="1000"
               alt="the_it_guy"
               src="/GetImage.gif"
             />

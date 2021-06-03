@@ -1,6 +1,4 @@
 import React from "react";
-// import image from "../../../public/GetImage.gif";
-// import "./hero.css";
 import Image from "next/image";
 function Hero() {
   return (
@@ -31,13 +29,15 @@ function Hero() {
         </div>
         {/* Column-2 */}
         <div className="p-2">
-          <div className="m-15 p-15 content-center ">
-            <Image
-              width="600"
-              height="600"
-              alt="the_it_guy"
-              src="/GetImage.gif"
-            />
+          <div className="flex justify-around">
+            <div>
+              <img
+                // width={650}
+                // height={650}
+                alt="the_it_guy"
+                src="/GetImage.gif"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -4,7 +4,10 @@ import Image from "next/image";
 function Navbar(props) {
   // const { variant = "primary", children, ...rest } = props;
   return (
-    <div className="fixed position:fixed  min-w-full mb-60 top-0 bg-white">
+    <div
+      id="navbar_component"
+      className="shadow-lg fixed  min-w-full mb-60 top-0 bg-white"
+    >
       <nav className=" w-full">
         <div className=" mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">

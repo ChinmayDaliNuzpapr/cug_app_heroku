@@ -7,7 +7,7 @@ const title2 = () => {
   return (
     <div className="title2_css ">
       <p className="montserrat-30 text-center text-align: center text-4xl font-size: 2.25rem+-* m-1.5 margin: 0.375rem">
-        <span>Title 1</span>
+        <span>Title 2</span>
       </p>
       <p className=" mb-8	margin-bottom: 2rem montserrat-18 text-center text-align: center m-4 margin: 1rem">
         Here are the few categories that you can discuss, ask, answer, recommend
@@ -31,9 +31,9 @@ const title2 = () => {
         </div>
         {/* Column-2 */}
         <div className="p-2">
-          <Image
-            width="1000"
-            height="1000"
+          <img
+            // width="1000"
+            // height="1000"
             alt="the_it_guy"
             src="/GetImage.gif"
           />

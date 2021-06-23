@@ -4,9 +4,9 @@ function FooterPage() {
   return (
     <div id="footerPageComponent" className="bg-blue-200 p-5">
       <div className="container container mx-auto">
-        <div className="grid grid-cols-3 gap-4 justify-items-center content-center text-justify">
+        <div className="grid grid-col-1 md:grid-cols-3 gap-4 justify-items-center content-center">
           {/* Column-1 */}
-          <div className="flex flex-col ">
+          <div className="flex flex-col justify-item-center text-center">
             <div>
               <span>About</span>
             </div>
@@ -21,7 +21,7 @@ function FooterPage() {
             </div>
           </div>
           {/* Column-2 */}
-          <div className="flex flex-col justify-item-center">
+          <div className="flex flex-col justify-item-center text-center">
             <div>
               <span>Resources</span>
             </div>
@@ -33,7 +33,7 @@ function FooterPage() {
             </div>
           </div>
           {/* Column-3 */}
-          <div className="flex flex-col justify-item-center">
+          <div className="flex flex-col justify-item-center text-center">
             <div>
               <span>Contact Info:</span>
             </div>

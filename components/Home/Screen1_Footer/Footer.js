@@ -4,7 +4,7 @@ import Footer_Feature from "./Footer_Feature";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-200 p-2">
+    <div className="p-2 container mx-auto mt-30 md:container md:mx-auto">
       <p className="montserrat-30 text-center text-align: center text-4xl font-size: 2.25rem+-* m-1.5 margin: 0.375rem">
         <span>Title 1</span>
       </p>
@@ -12,7 +12,7 @@ const Footer = () => {
         Here are the few categories that you can discuss, ask, answer, recommend
         here
       </p>
-      <div className=" montserrat-12 text-center text-align: center flex justify-around justify-content: space-around ">
+      <div className="flex flex-col md:flex-row montserrat-12 text-center text-align: center flex justify-around justify-content: space-around ">
         <Footer_Feature />
         <Footer_Feature />
         <Footer_Feature />

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import image from "../../../public/banner.png";
 // import Image from 'next/image';
 const Screen4_Feature = () => {

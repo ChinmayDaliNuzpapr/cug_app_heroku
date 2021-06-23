@@ -1,0 +1,41 @@
+.tile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  color: darkcyan;
+  margin: 5px;
+}
+.left {
+  margin: 5px 0px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+}
+.left img {
+  height: 25px;
+}
+.right {
+  display: flex;
+}
+.inner {
+  margin: 20px 0px;
+  display: flex;
+  flex-flow: row wrap;
+}
+#span {
+  padding: 5px;
+  border: 2px solid darkcyan;
+  color: darkcyan;
+  background: white;
+  border-radius: 50px;
+  margin: 5px;
+  cursor: pointer;
+}
+.selected {
+  background: darkcyan;
+  color: white;
+}
+.heading {
+  width: 100%;
+}

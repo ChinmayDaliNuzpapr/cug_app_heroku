@@ -1,0 +1,7 @@
+.parallax_container {
+  /* height: 200px; */
+  /* background-color: #0f0; */
+  width: 100vw;
+  margin-left: calc(-50vw + 50% - 8px);
+  position: relative;
+}

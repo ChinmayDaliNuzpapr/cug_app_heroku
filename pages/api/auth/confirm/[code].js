@@ -1,23 +1,21 @@
-import jwt from 'jsonwebtoken';
-import userModel from '../../../../models/user';
-import validationModel from '../../../../models/validationCode';
-import groupModel from '../../../../models/group';
-import questionModel from '../../../../models/question';
-import categoryModel from '../../../../models/category';
-import DBConnect from '../../../middleware/DBConnect';
-import randomstring from 'randomstring';
+import jwt from "jsonwebtoken";
+import userModel from "../../../../models/user";
+import validationModel from "../../../../models/validationCode";
+import groupModel from "../../../../models/group";
+import DBConnect from "../../middleware/DBConnect";
+import randomstring from "randomstring";
 
 const generateToken = (user) => {
-	return jwt.sign(
-		{
-			_id: user._id,
-			Group_name: user.Group_name,
-			alphaNumericId: user.alphaNumericId,
-		},
-		process.env.secretKey
-		//expiry of jwt token
-		//{ expiresIn: '6h' }
-	);
+  return jwt.sign(
+    {
+      _id: user._id,
+      Group_name: user.Group_name,
+      alphaNumericId: user.alphaNumericId,
+    },
+    process.env.secretKey
+    //expiry of jwt token
+    //{ expiresIn: '6h' }
+  );
 };
 
 /*const getCategoryAndQuestions = async (groupID) => {
@@ -31,92 +29,92 @@ const generateToken = (user) => {
 };*/
 
 const confirmation = async (req, res) => {
-	try {
-		const { code } = req.query;
+  try {
+    const { code } = req.query;
 
-		const validationCode = await validationModel.findOne({
-			$and: [{ code: code }, { active: true }],
-		});
+    const validationCode = await validationModel.findOne({
+      $and: [{ code: code }, { active: true }],
+    });
 
-		if (!validationCode) throw process.env.INVALID_ACTIVATION_LINK;
+    if (!validationCode) throw process.env.INVALID_ACTIVATION_LINK;
 
-		let token, user, current_group;
+    let token, user, current_group;
 
-		//CREATING THE GROUP
+    //CREATING THE GROUP
 
-		const GroupAlreadyExist = await groupModel.findOne({
-			Group_name: validationCode.Group_name,
-		});
+    const GroupAlreadyExist = await groupModel.findOne({
+      Group_name: validationCode.Group_name,
+    });
 
-		current_group = GroupAlreadyExist;
+    current_group = GroupAlreadyExist;
 
-		if (!GroupAlreadyExist) {
-			const new_group = new groupModel({
-				Group_name: validationCode.Group_name,
-			});
+    if (!GroupAlreadyExist) {
+      const new_group = new groupModel({
+        Group_name: validationCode.Group_name,
+      });
 
-			await new_group.save();
+      await new_group.save();
 
-			current_group = new_group;
-		}
+      current_group = new_group;
+    }
 
-		const UserAlreadyRegistered = await userModel.findOne({
-			email: validationCode.email,
-		});
+    const UserAlreadyRegistered = await userModel.findOne({
+      email: validationCode.email,
+    });
 
-		if (UserAlreadyRegistered) {
-			user = {
-				_id: UserAlreadyRegistered._id,
-				Group_name: UserAlreadyRegistered.Group_name,
-				alphaNumericId: UserAlreadyRegistered.alphaNumericId,
-			};
+    if (UserAlreadyRegistered) {
+      user = {
+        _id: UserAlreadyRegistered._id,
+        Group_name: UserAlreadyRegistered.Group_name,
+        alphaNumericId: UserAlreadyRegistered.alphaNumericId,
+      };
 
-			token = generateToken(user);
-			console.log('NOT FIRST TIME', token);
+      token = generateToken(user);
+      console.log("NOT FIRST TIME", token);
 
-			//making validation code inactive
-			validationCode.active = false;
-			validationCode.save();
+      //making validation code inactive
+      validationCode.active = false;
+      validationCode.save();
 
-			return res.send({
-				token,
-				message: process.env.LOGGED_IN_SUCCESSFULLY,
-				alphaNumericId: UserAlreadyRegistered.alphaNumericId,
-			});
-		} else {
-			const id = randomstring.generate({
-				length: 12,
-				charset: 'alphanumeric',
-			});
+      return res.send({
+        token,
+        message: process.env.LOGGED_IN_SUCCESSFULLY,
+        alphaNumericId: UserAlreadyRegistered.alphaNumericId,
+      });
+    } else {
+      const id = randomstring.generate({
+        length: 12,
+        charset: "alphanumeric",
+      });
 
-			//register the user
-			user = new userModel({
-				Group_name: validationCode.Group_name,
-				alphaNumericId: id,
-			});
+      //register the user
+      user = new userModel({
+        Group_name: validationCode.Group_name,
+        alphaNumericId: id,
+      });
 
-			await user.save();
-			token = generateToken(user);
-			console.log('FIRST TIME', token);
+      await user.save();
+      token = generateToken(user);
+      console.log("FIRST TIME", token);
 
-			//saving email after generating the token
-			user.email = validationCode.email;
-			await user.save();
+      //saving email after generating the token
+      user.email = validationCode.email;
+      await user.save();
 
-			//making validation code inactive
-			validationCode.active = false;
-			validationCode.save();
+      //making validation code inactive
+      validationCode.active = false;
+      validationCode.save();
 
-			return res.send({
-				token,
-				message: process.env.FIRST_TIME_LOGGEDIN,
-				alphaNumericId: id,
-			});
-		}
-	} catch (err) {
-		console.log(err);
-		res.redirect('/404', { error: err });
-	}
+      return res.send({
+        token,
+        message: process.env.FIRST_TIME_LOGGEDIN,
+        alphaNumericId: id,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.redirect("/404", { error: err });
+  }
 };
 
 export default DBConnect(confirmation);

@@ -15,7 +15,7 @@ const SearchBar = () => {
       console.log("THE SUBSTRING", searchtext.substring(1));
       axios
         .post(
-          `${process.env.PRODUCTION}/api/search/question`,
+          `${process.env.DEVELOPMENT}/api/search/question`,
           {
             search: searchtext.substring(1),
             searchBy: "tag",
@@ -36,7 +36,7 @@ const SearchBar = () => {
     } else {
       axios
         .post(
-          `${process.env.PRODUCTION}/api/search/question`,
+          `${process.env.DEVELOPMENT}/api/search/question`,
           {
             search: searchtext,
             searchBy: "title",

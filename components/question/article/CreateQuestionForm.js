@@ -60,14 +60,13 @@ const CreateQuestionForm = (props) => {
   const postAQuestion = (details) => {
     console.log("THE OBJECT WITH DATA", details);
     console.log("THE EDITOR VALUE", editorHtml);
-    console.log("THE EDITOR VALUE", localStorage.getItem("group_id"));
     details = { ...details, content: editorHtml };
     let postBody = {
       categoryID: details.category,
-      groupID: localStorage.getItem("group_id"),
+      groupID: `${localStorage.getItem("group_id")}`,
       article: {
         title: details.title,
-        author: localStorage.getItem("alphaNumericId"),
+        author: `${localStorage.getItem("alphaNumericId")}`,
         content: editorHtml.current.innerHTML,
         scope: details.scope,
       },
@@ -77,7 +76,7 @@ const CreateQuestionForm = (props) => {
     console.log("THE FINAL DETAILS", postBody);
     // THE AXIOS REQUEST
     axios
-      .post(`${process.env.PRODUCTION}/api/question/post`, postBody, {
+      .post(`${process.env.DEVELOPMENT}/api/question/post`, postBody, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
         },

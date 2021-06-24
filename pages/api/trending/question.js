@@ -1,6 +1,6 @@
 import questionModel from "../../../models/question";
-import DBConnect from "../../middleware/DBConnect";
-import isUserLoggedIn from "../../middleware/isUserLoggedIn";
+import DBConnect from "../middleware/DBConnect";
+import isUserLoggedIn from "../middleware/isUserLoggedIn";
 import mongoose from "mongoose";
 
 const Trending = async (req, res) => {

@@ -1,7 +1,7 @@
 import questionModel from "../../../models/question";
 import categoryModel from "../../../models/category";
 import groupModel from "../../../models/group";
-import DBConnect from "../../middleware/DBConnect";
+import DBConnect from "../middleware/DBConnect";
 import jwt from "jsonwebtoken";
 
 /*isUserLoggedIn middleware is not being used here, as it throws error when token isn't there, but someone

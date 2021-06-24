@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
     console.log("THE FIRST USE_EFFECT WITH NO PARAMETERS");
     setLoading(true);
     axios
-      .get(`${process.env.PRODUCTION}/api/question/category`, {
+      .get(`${process.env.DEVELOPMENT}/api/question/category`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
         },
@@ -55,13 +55,13 @@ const Layout = ({ children }) => {
   //[📌] Everytime the category changes we need to fetch a new set of questions
   //[📌] Everytime the new data is fetched we need to update category state.
   function fetchingDataOfNewCategory(category_id) {
-    router.push(`${process.env.PRODUCTION}`);
+    router.push(`${process.env.DEVELOPMENT}`);
 
     console.log("THE ID OF CATEGORY", category_id);
     console.log("THE LOCAL HOST OF ", localStorage.getItem("jwt_token"));
     axios
       .post(
-        `${process.env.PRODUCTION}/api/question/category`,
+        `${process.env.DEVELOPMENT}/api/question/category`,
         { category: category_id },
         {
           headers: {
@@ -83,7 +83,7 @@ const Layout = ({ children }) => {
       })
       .catch((err) => console.log("😈😈😈😈", err));
   }
-
+  console.log(`THE DEVELOPMENT URL ${process.env.DEVELOPMENT}`);
   console.log("THE FETCHED-DATA IN THE BASE LAYOUT", fetchedData);
   return (
     <UserContext.Provider value={{ authenticated, setAuthenticated }}>

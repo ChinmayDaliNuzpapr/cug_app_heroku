@@ -20,7 +20,7 @@ export function MyDropdown() {
     // setLoading(true);
     axios
       .post(
-        `${process.env.PRODUCTION}/api/trending/question`,
+        `${process.env.DEVELOPMENT}/api/trending/question`,
         {
           categoryID: fetchedData.category.current_category,
         },
@@ -185,7 +185,7 @@ export function MyToggle() {
     if (enabled) {
       axios
         .post(
-          `${process.env.PRODUCTION}/api/sort/question`,
+          `${process.env.DEVELOPMENT}/api/sort/question`,
           {
             categoryID: fetchedData.category.current_category,
             criteria: "date",
@@ -211,7 +211,7 @@ export function MyToggle() {
     } else {
       axios
         .post(
-          `${process.env.PRODUCTION}/api/sort/question`,
+          `${process.env.DEVELOPMENT}/api/sort/question`,
           {
             categoryID: fetchedData.category.current_category,
             criteria: "date",

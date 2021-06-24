@@ -14,7 +14,7 @@ function Question() {
   const [question, setQuestions] = useState();
   const [answer, setAnswer] = useState();
   let [isOpen, setIsOpen] = useState(false);
-  //process.env.DEVELOPMENT is undefined
+  //process.env.PRODUCTION is undefined
   console.log("THE TOGGLER FOR MODAL", isOpen);
   useEffect(async () => {
     if (router.asPath !== router.route) {
@@ -23,7 +23,7 @@ function Question() {
       console.log("ROUTER QUERY", router.query);
       console.log("ID IS", id);
 
-      const url = `${process.env.DEVELOPMENT}/api/question/${id}`;
+      const url = `${process.env.PRODUCTION}/api/question/${id}`;
       console.log("URL IS ", url);
       const token = localStorage.getItem("jwt_token");
 

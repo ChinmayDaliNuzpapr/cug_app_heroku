@@ -13,14 +13,13 @@ const people = [
 ];
 
 export function MyDropdown() {
-  const { fetchedData, setFetchedData, setLoading } = React.useContext(
-    MainDataContext
-  );
+  const { fetchedData, setFetchedData, setLoading } =
+    React.useContext(MainDataContext);
   const fetchTheTrendingQuestion = () => {
     // setLoading(true);
     axios
       .post(
-        `${process.env.DEVELOPMENT}/api/trending/question`,
+        `${process.env.PRODUCTION}/api/trending/question`,
         {
           categoryID: fetchedData.category.current_category,
         },
@@ -177,15 +176,14 @@ export function MyListbox() {
 }
 export function MyToggle() {
   const [enabled, setEnabled] = React.useState(false);
-  const { fetchedData, setFetchedData, setLoading } = React.useContext(
-    MainDataContext
-  );
+  const { fetchedData, setFetchedData, setLoading } =
+    React.useContext(MainDataContext);
   // If enabled === false then display the company scope else global scope
   React.useEffect(() => {
     if (enabled) {
       axios
         .post(
-          `${process.env.DEVELOPMENT}/api/sort/question`,
+          `${process.env.PRODUCTION}/api/sort/question`,
           {
             categoryID: fetchedData.category.current_category,
             criteria: "date",
@@ -211,7 +209,7 @@ export function MyToggle() {
     } else {
       axios
         .post(
-          `${process.env.DEVELOPMENT}/api/sort/question`,
+          `${process.env.PRODUCTION}/api/sort/question`,
           {
             categoryID: fetchedData.category.current_category,
             criteria: "date",

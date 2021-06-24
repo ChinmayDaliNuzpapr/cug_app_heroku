@@ -10,7 +10,7 @@ const Reply = ({ reply }) => {
     const data = { articleID: reply.article._id };
 
     const response = await axios.post(
-      `${process.env.DEVELOPMENT}/api/reply/like`,
+      `${process.env.PRODUCTION}/api/reply/like`,
       data,
       {
         headers: {
@@ -94,7 +94,7 @@ const Comment = ({ answer }) => {
     const data = { articleID: answer.article._id };
 
     const response = await axios.post(
-      `${process.env.DEVELOPMENT}/api/answer/like`,
+      `${process.env.PRODUCTION}/api/answer/like`,
       data,
       {
         headers: {
@@ -120,7 +120,7 @@ const Comment = ({ answer }) => {
     };
 
     const response = await axios.post(
-      `${process.env.DEVELOPMENT}/api/reply/post`,
+      `${process.env.PRODUCTION}/api/reply/post`,
       data,
       {
         headers: {
@@ -149,7 +149,7 @@ const Comment = ({ answer }) => {
     };
 
     const response = await axios.post(
-      `${process.env.DEVELOPMENT}/api/reply/all`,
+      `${process.env.PRODUCTION}/api/reply/all`,
       data,
       {
         headers: {

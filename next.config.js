@@ -8,7 +8,7 @@ module.exports = {
 
     DEVELOPMENT: "http://localhost:3000",
     //success messages
-    PRODUCTION: "https://cug-deploy.herokuapp.com",
+    PRODUCTION: "https://cug-app.herokuapp.com/",
     EMAIL_CONFIRMATION: " We have sent you email confirmation to you.",
     LOGGED_IN_SUCCESSFULLY: "Welcome back to  our platform",
     QUESTION_ADDED: "Your question has been added successfuly",

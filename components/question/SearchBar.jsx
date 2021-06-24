@@ -5,8 +5,9 @@ import * as Yup from "yup";
 import { MainDataContext } from "../Layout";
 const SearchBar = () => {
   const [searchtext, setSearchText] = React.useState("");
-  const { fetchedData, setFetchedData, setLoading } =
-    React.useContext(MainDataContext);
+  const { fetchedData, setFetchedData, setLoading } = React.useContext(
+    MainDataContext
+  );
   const onFormSubmit = (e) => {
     e.preventDefault();
     console.log("THE VALUE ", searchtext);
@@ -14,7 +15,7 @@ const SearchBar = () => {
       console.log("THE SUBSTRING", searchtext.substring(1));
       axios
         .post(
-          `${process.env.PRODUCTION}/api/search/question`,
+          `${process.env.DEVELOPMENT}/api/search/question`,
           {
             search: searchtext.substring(1),
             searchBy: "tag",
@@ -35,7 +36,7 @@ const SearchBar = () => {
     } else {
       axios
         .post(
-          `${process.env.PRODUCTION}/api/search/question`,
+          `${process.env.DEVELOPMENT}/api/search/question`,
           {
             search: searchtext,
             searchBy: "title",

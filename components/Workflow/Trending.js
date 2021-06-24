@@ -6,7 +6,7 @@ export const ExtraTrendingBox = ({ category_id }) => {
   const router = useRouter();
   const [trendingList, setTrending] = React.useState(null);
   React.useEffect(async () => {
-    const url = `${process.env.PRODUCTION}/api/trending/question`;
+    const url = `${process.env.DEVELOPMENT}/api/trending/question`;
     console.log("URL IS ", url);
     const token = localStorage.getItem("jwt_token");
 

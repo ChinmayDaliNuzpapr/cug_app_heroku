@@ -76,7 +76,7 @@ const CreateQuestionForm = (props) => {
     console.log("THE FINAL DETAILS", postBody);
     // THE AXIOS REQUEST
     axios
-      .post(`${process.env.PRODUCTION}/api/question/post`, postBody, {
+      .post(`${process.env.DEVELOPMENT}/api/question/post`, postBody, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
         },

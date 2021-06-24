@@ -61,7 +61,7 @@ const Register = async (req, res) => {
 				await user.save();
 			}*/
 
-      const url = `${process.env.PRODUCTION}/token/${code}`;
+      const url = `${process.env.DEVELOPMENT}/token/${code}`;
 
       const transporter = nodemailer.createTransport({
         service: "gmail",

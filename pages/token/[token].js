@@ -21,13 +21,13 @@ const TokenComponent = (props) => {
     if (localStorage.getItem("token")) {
       // Now lets fetch token
       axios
-        .get(`${process.env.DEVELOPMENT}/api/auth/confirm/${query.token}`)
+        .get(`${process.env.PRODUCTION}/api/auth/confirm/${query.token}`)
         .then((res) => {
           console.log("THE RESPONSE👉👉👉👉👉👉👉👉👉👉", res);
           localStorage.setItem("jwt_token", res.data.token);
           // localStorage.setItem("alphaNumericId", res.data.alphaNumericId);
           setAuthenticated(res.data);
-          return router.push(`${process.env.DEVELOPMENT}/questions`);
+          return router.push(`${process.env.PRODUCTION}/questions`);
         })
         .catch((err) => console.log("SOMETHING WENT WRONG", err));
     }

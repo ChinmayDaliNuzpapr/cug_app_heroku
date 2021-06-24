@@ -1,14 +1,13 @@
 module.exports = {
   env: {
-    url:
-      "mongodb+srv://bhupesh:bhupesh@cluster0.axtn8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    url: "mongodb+srv://bhupesh:bhupesh@cluster0.axtn8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     secretKey: "mysecretkey",
     email: "testmail67590@gmail.com",
     password: "/mK&F,Z2xG",
 
     DEVELOPMENT: "http://localhost:3000",
     //success messages
-    PRODUCTION: "https://cug-app.herokuapp.com/",
+    PRODUCTION: "https://cug-deploy.herokuapp.com",
     EMAIL_CONFIRMATION: " We have sent you email confirmation to you.",
     LOGGED_IN_SUCCESSFULLY: "Welcome back to  our platform",
     QUESTION_ADDED: "Your question has been added successfuly",
